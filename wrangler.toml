@@ -1,0 +1,23 @@
+name = "linktcp-dev"
+main = "dist/_worker.js"
+compatibility_date = "2026-08-04"
+workers_dev = false
+
+# 仅保留 2026 年 8 月仍未成为绝对默认值的专有特定开关
+compatibility_flags = [
+  "nodejs_compat_populate_process_env",   # 允许将环境变量注入到 process.env
+  "text_decoder_replace_surrogates",      # 处理特殊代理字符的特定解码行为
+  "enable_nodejs_http_server_modules",    # 针对 node:http 原生 Server 模块的额外扩展支持
+  "queue_consumer_no_wait_for_wait_until",# 队列消费者的生命周期特定优化
+  "streams_enable_constructors",   # 确保 TransformStream / ReadableStream 的完整构造函数支持
+  "web_socket_compression"                 # 显式激活 WebSocket 压缩功能（按需开启）
+]
+
+
+# 生产环境配置（对应您的 npm run deploy 命令）
+[env.production]
+name = "linktcp"
+
+# 日志功能
+[observability]
+enabled = false

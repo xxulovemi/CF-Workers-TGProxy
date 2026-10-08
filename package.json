@@ -1,0 +1,35 @@
+{
+  "name": "linktcp",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "rm -rf dist && node esbuild.config.js",
+    "deploy": "npm run build && wrangler deploy --no-bundle --env production",
+    "tail": "wrangler tail --env production"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "wrangler": "4.119.0",
+    "@cloudflare/workers-types": "5.20260804.1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "dns-packet": "^5.6.1",
+    "ipaddr.js": "^2.5.0",
+    "crc-32": "^1.2.2",
+    "ws": "^8.21.3",
+    "@grpc/grpc-js": "^1.14.4",
+    "@grpc/proto-loader": "^0.8.1",
+    "http2-wrapper": "^2.2.1",
+    "agentkeepalive": "^4.6.0",
+    "piscina": "^5.3.1",
+    "workerpool": "^10.0.3",
+    "utf-8-validate": "^6.0.6"
+  }
+}
